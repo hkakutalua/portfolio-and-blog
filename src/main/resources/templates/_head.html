@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="common_head(title,links)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}"></title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/css/normalize.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/css/fontawesome/all.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/css/grid.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}">
+
+    <th:block th:replace="${links}" />
+</head>
+
+</html>
