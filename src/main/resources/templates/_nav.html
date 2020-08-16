@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav class="nav-container" th:fragment="common_nav">
+        <div class="row">
+            <h2><a th:href="@{/}">Henrick</a></h2>
+
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a class="blog-nav-item" th:href="@{blog-posts.html}">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>

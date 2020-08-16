@@ -98,10 +98,7 @@ header h1 {
 /* ----------------------------------------- */
 
 section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding: 60px 20%;
 }
 
 section h1 {
