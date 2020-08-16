@@ -1,4 +1,4 @@
-package me.kakutalua.website.controllers
+package me.kakutalua.website.web.controllers
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

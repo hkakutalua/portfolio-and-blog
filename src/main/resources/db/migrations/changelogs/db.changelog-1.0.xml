@@ -1,0 +1,40 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="Henrick Kakutalua">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="creation_date" type="TIMESTAMP WITHOUT TIMEZONE">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIMEZONE" />
+            <column name="name" type="VARCHAR(60)">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="VARCHAR(60)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="Henrick Kakutalua">
+        <loadData tableName="users"
+                  file="db/migrations/data/default_first_user.csv"
+                  relativeToChangelogFile="false" />
+
+        <rollback>
+            <delete tableName="users">
+                <where>id=1</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

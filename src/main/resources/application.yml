@@ -1,1 +1,10 @@
-
+spring:
+  profiles:
+    active: ${SPRING_PROFILE}
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://${WEB_APPLICATION_PG_HOST}/${WEB_APPLICATION_PG_DATABASE_NAME}
+    username: ${WEB_APPLICATION_PG_USERNAME}
+    password: ${WEB_APPLICATION_PG_PASSWORD}
+  liquibase:
+    change-log: classpath:db/migrations/db.changelog-master.xml

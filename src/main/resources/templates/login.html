@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_head :: common_head(~{::title}, ~{::link})">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/login.css}">
+    <title>Login</title>
+</head>
+
+<body>
+    <nav th:replace="_nav :: common_nav"></nav>
+
+    <form action="#" th:action="@{/login}" class="login-form" method="post">
+        <h1>Login</h1>
+
+        <div class="row form-error" th:if="${param.error}">
+            Invalid email and/or password.
+        </div>
+
+        <div class="row">
+            <input class="text-edit" name="username" type="email" placeholder="Your email">
+        </div>
+
+        <div class="row">
+            <input class="text-edit" name="password" type="password" placeholder="Your password">
+        </div>
+
+        <div class="row">
+            <input class="btn btn-primary" type="submit" value="Login">
+        </div>
+    </form>
+
+</body>
+</html>
