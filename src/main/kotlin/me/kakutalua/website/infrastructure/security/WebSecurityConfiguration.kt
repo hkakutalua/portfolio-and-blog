@@ -22,7 +22,7 @@ class WebSecurityConfiguration(
                 ?.and()
             ?.formLogin()
                 ?.loginPage("/login")?.permitAll()
-                ?.defaultSuccessUrl("/management")
+                ?.defaultSuccessUrl("/management/blog-posts")
                 ?.and()
             ?.logout()
                 ?.permitAll()
