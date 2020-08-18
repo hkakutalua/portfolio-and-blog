@@ -37,4 +37,23 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="3" author="Henrick Kakutalua">
+        <createTable tableName="blog_posts">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="creation_date" type="TIMESTAMP WITHOUT TIMEZONE">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIMEZONE" />
+            <column name="title" type="VARCHAR(60)">
+                <constraints nullable="false" />
+            </column>
+            <column name="subtitle" type="VARCHAR(60)" />
+            <column name="content" type="TEXT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>

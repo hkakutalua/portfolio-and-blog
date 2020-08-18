@@ -14,66 +14,46 @@
             </div>
 
             <div class="col span-1-of-2 new-blog-post-btn">
-                <a href="new-edit-post.html" class="btn btn-primary">New &nbsp;<i class="fas fa-plus"></i></a>
+                <a th:href="@{/management/blog-posts/new}" class="btn btn-primary">New &nbsp;<i class="fas fa-plus"></i></a>
             </div>
         </div>
 
-        <div class="row blog-post-item">
-            <div class="col span-8-of-10">
-                <h2><a href="new-edit-blog-post.html">Partial Updates with Spring Boot</a></h2>
-                <time>September 23, 2020</time>
-            </div>
+        <div class="row blog-post-item" th:each="blogPost : ${blogPosts}">
+            <div class="row blog-post-item">
+                <div class="col span-8-of-10">
+                    <h2>
+                        <a th:href="@{/management/blog-posts/{blogPostId}/edit(blogPostId = ${blogPost.id})}"
+                           th:text="${blogPost.title}">
+                        </a>
+                    </h2>
+                    <time th:text="${blogPost.creationDate}"></time>
+                </div>
 
-            <div class="col span-2-of-10 blog-post-item-actions">
-                <a href="new-edit-post.html"><i class="fas fa-edit edit-article-icon"></i></a>
-                <i class="fas fa-trash delete-article-icon"></i>
-            </div>
-        </div>
-
-        <div class="row blog-post-item">
-            <div class="col span-8-of-10">
-                <h2><a href="new-edit-blog-post.html">Partial Updates with Spring Boot</a></h2>
-                <time>September 23, 2020</time>
-            </div>
-
-            <div class="col span-2-of-10 blog-post-item-actions">
-                <a href="new-edit-post.html"><i class="fas fa-edit edit-article-icon"></i></a>
-                <i class="fas fa-trash delete-article-icon"></i>
-            </div>
-        </div>
-
-        <div class="row blog-post-item">
-            <div class="col span-8-of-10 blog-post-item-title">
-                <h2><a href="new-edit-blog-post.html">Partial Updates with Spring Boot</a></h2>
-                <time>September 23, 2020</time>
-            </div>
-
-            <div class="col span-2-of-10 blog-post-item-actions">
-                <a href="new-edit-post.html"><i class="fas fa-edit edit-article-icon"></i></a>
-                <i class="fas fa-trash delete-article-icon"></i>
+                <div class="col span-2-of-10 blog-post-item-actions">
+                    <a th:href="@{/management/blog-posts/{blogPostId}/edit(blogPostId = ${blogPost.id})}">
+                        <i class="fas fa-edit edit-article-icon"></i>
+                    </a>
+                    <i class="fas fa-trash delete-article-icon"></i>
+                </div>
             </div>
         </div>
 
         <div class="posts-page-navigator row">
-            <a class="btn btn-primary" href="#"><i class="fas fa-arrow-left"></i></a>
-            Page 1
-            <a class="btn btn-primary" href="#"><i class="fas fa-arrow-right"></i></a>
+            <a th:if="${!isFirstPage}"
+               th:href="@{/management/blog-posts(page=${pageNumber - 1})}"
+               class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+
+            <span th:text="'Page ' + ${pageNumber + 1}"></span>
+
+            <a th:if="${!isLastPage}"
+               th:href="@{/management/blog-posts(page=${pageNumber + 1})}"
+               class="btn btn-primary">
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
 
-        <footer>
-            <div class="row">
-                <div class="col span-1-of-2">
-                    <p>&copy; Henrick Kakutalua (Henry-Keys)</p>
-                </div>
-                <div class="col span-1-of-2">
-                    <ul class="social-media-links">
-                        <li><a href="https://github.com/Henry-Keys" target="blank"><i class="fab fa-github"></i></a></li>
-                        <li><a href="https://medium.com/@henrickkakutalua" target="blank"><i class="fab fa-medium"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/henrick-kakutalua" target="blank"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="https://twitter.com/henrykeys96" target="blank"><i class="fab fa-twitter"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+        <footer th:replace="_footer :: common_footer"></footer>
     </body>
 </html>

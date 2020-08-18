@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_head :: common_head(~{::title}, ~{::link})">
+    <title>Edit Blog Post</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/new-edit-post.css}">
+</head>
+
+<body>
+    <nav th:replace="_management_nav :: management_nav"></nav>
+
+    <form action="#"
+          th:action="@{/management/blog-posts/{id}/edit(id=${id})}"
+          th:object="${postForm}"
+          method="post"
+          class="blog-post-form">
+        <div class="row">
+            <h1>Edit Post</h1>
+        </div>
+
+        <div class="row post-title-row">
+            <label>Title</label>
+            <input th:field="*{title}" type="text" class="text-edit">
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="form-error"></p>
+        </div>
+
+        <div class="row post-subtitle-row">
+            <label>Subtitle (Optional)</label>
+            <input th:field="*{subtitle}" type="text" class="text-edit">
+            <p th:if="${#fields.hasErrors('subtitle')}" th:errors="*{subtitle}" class="form-error"></p>
+        </div>
+
+        <div class="row post-content-row">
+            <label>Post Content</label>
+            <textarea th:field="*{content}" class="text-edit" placeholder="Write the blog markdown content here"></textarea>
+            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="form-error"></p>
+        </div>
+
+        <div class="row post-btn-row">
+            <input type="submit" class="btn btn-primary" value="Finish Edit">
+        </div>
+    </form>
+
+    <footer th:replace="_footer :: common_footer"></footer>
+</body>
+</html>
