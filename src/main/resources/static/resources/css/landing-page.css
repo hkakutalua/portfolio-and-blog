@@ -178,8 +178,8 @@ section h2 {
     font-weight: bold;
 }
 
-.blog-section article p {
-    margin: 15px 0;
+.blog-section article > a {
+    margin-top: 10px;
 }
 
 /* ----------------------------------------- */

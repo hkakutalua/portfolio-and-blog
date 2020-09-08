@@ -1,0 +1,85 @@
+section,
+.posts-page-navigator {
+    padding: 10px 0;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+article {
+    padding-bottom: 50px;
+}
+
+article:after {
+    display: block;
+    height: 1px;
+    background-color: #cccccc;
+    content: " ";
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+article:last-of-type:after {
+    content: none;
+}
+
+article h2 {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+article h3 {
+    font-size: 80%;
+    margin-bottom: 20px;
+}
+
+article time {
+    font-weight: 300;
+    font-size: 80%;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.posts-page-navigator {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.posts-page-navigator .btn:first-child {
+    margin-right: 20px;
+}
+
+.posts-page-navigator .btn:last-child {
+    margin-left: 20px;
+}
+
+/* Big tablets to 1200px */
+@media only screen and (max-width: 1200px) {
+    section,
+    .posts-page-navigator {
+        margin-left: 250px;
+        margin-right: 250px;
+    }
+}
+
+/* Small tablets to big tablets */
+@media only screen and (max-width: 1023px) {
+    section,
+    .posts-page-navigator {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+/* Small phones to small tablets tablets */
+@media only screen and (max-width: 767px) {
+    section,
+    .posts-page-navigator {
+        margin-left: 45px;
+        margin-right: 45px;
+    }
+}
+
+/* Small phones */
+@media only screen and (max-width: 480px) {}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_head :: common_head(~{::title},~{::link})">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/blog-posts.css}">
+    <title>Blog Posts</title>
+</head>
+
+<body>
+    <header>
+        <nav th:replace="_nav :: common_nav"></nav>
+    </header>
+
+    <section class="blog-posts">
+        <div class="row">
+            <h1>Blog Posts</h1>
+        </div>
+
+        <div class="row" th:each="blogPost : ${blogPosts}">
+            <article>
+                <time th:if="${blogPost.publishingDate != null}"
+                      th:text="${#temporals.format(blogPost.publishingDate, 'MMMM dd, YYYY')}">
+                </time>
+                <h2 th:text="${blogPost.title}"></h2>
+                <h3 th:if="${blogPost.subtitle != null}" th:text="${blogPost.subtitle}"></h3>
+                <a class="btn btn-primary" th:href="@{/blog-posts/{id}(id = ${blogPost.id})}">Read article</a>
+            </article>
+        </div>
+    </section>
+
+    <div class="posts-page-navigator row">
+        <a th:if="${!isFirstPage}"
+           th:href="@{/blog-posts(page=${pageNumber - 1})}"
+           class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
+        <span th:text="'Page ' + ${pageNumber + 1}"></span>
+
+        <a th:if="${!isLastPage}"
+           th:href="@{/blog-posts(page=${pageNumber + 1})}"
+           class="btn btn-primary">
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <footer th:replace="_footer :: common_footer"></footer>
+</body>
+</html>

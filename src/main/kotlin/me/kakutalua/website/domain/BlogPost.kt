@@ -1,12 +1,11 @@
 package me.kakutalua.website.domain
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Table
+import java.time.OffsetDateTime
+import javax.persistence.*
 
 @Entity
 @Table(name = "blog_posts")
-class BlogPost(
+open class BlogPost(
     @Column(name = "title", nullable = false)
     var title: String,
 
@@ -15,4 +14,16 @@ class BlogPost(
 
     @Column(name = "content", nullable = false)
     var content: String
-) : BaseEntity()
+) : BaseEntity() {
+    @Column(name = "publishing_status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    var publishingStatus = PublishingStatus.DRAFT
+        set(value) {
+            field = value
+            publishingDate = OffsetDateTime.now()
+        }
+
+    @Column(name = "publishing_date")
+    var publishingDate: OffsetDateTime? = null
+        private set
+}
