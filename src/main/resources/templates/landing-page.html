@@ -13,7 +13,7 @@
                     <li><a href="#skillset">Skillset</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#get-in-touch">Get in Touch</a></li>
-                    <li><a th:href="@{blog-posts.html}">Blog</a></li>
+                    <li><a th:href="@{/blog-posts}">Blog</a></li>
                 </ul>
             </div>
         </nav>
@@ -69,7 +69,8 @@
                     <span th:text="${#temporals.format(blogPost.publishingDate, 'yyyy-MM-dd')}"></span>
                 </time>
 
-                <p th:text="${blogPost.content}"></p>
+                <br>
+
                 <a class="btn btn-primary"
                    th:href="@{/blog-posts/{blogPostId}(blogPostId = ${blogPost.id})}">
                     More

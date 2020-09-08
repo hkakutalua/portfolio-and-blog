@@ -9,8 +9,7 @@ class LandingPageBlogPostViewModelMapper {
             return LandingPageBlogPostViewModel(
                 id = blogPost.id,
                 title = blogPost.title,
-                publishingDate = blogPost.publishingDate,
-                content = blogPost.content.replace("\\t\\n", "").take(200)
+                publishingDate = blogPost.publishingDate
             )
         }
 

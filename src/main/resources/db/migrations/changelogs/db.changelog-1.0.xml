@@ -73,4 +73,9 @@
                 defaultNullValue="DRAFT" />
     </changeSet>
 
+    <changeSet id="6" author="Henrick Kakutalua">
+        <modifyDataType tableName="blog_posts" columnName="title" newDataType="VARCHAR(100)" />
+        <modifyDataType tableName="blog_posts" columnName="subtitle" newDataType="VARCHAR(100)" />
+    </changeSet>
+
 </databaseChangeLog>

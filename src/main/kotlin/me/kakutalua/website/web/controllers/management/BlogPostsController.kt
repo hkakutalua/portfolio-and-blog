@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import javax.validation.Valid
 
-@Controller
+@Controller(value = "ManagementBlogPostsController")
 @RequestMapping("/management/blog-posts")
 class BlogPostsController(val blogPostsRepository: BlogPostsRepository) {
     @GetMapping
