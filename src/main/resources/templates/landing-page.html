@@ -59,25 +59,21 @@
         <section class="blog-section col span-1-of-2">
             <h1>Latest blog content</h1>
 
-            <article>
-                <h2><a href="#">Partial Updates with Spring Boot</a></h2>
-                <time>Posted on <span>2019-09-23</span></time>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum ipsum eget dignissim volutpat. Sed sed vestibulum enim, a tincidunt arcu. Proin quis interdum sapien...</p>
-                <a class="btn btn-primary" href="#">More</a>
-            </article>
+            <article th:each="blogPost : ${blogPosts}">
+                <h2>
+                    <a th:text="${blogPost.title}"
+                       th:href="@{/blog-posts/{blogPostId}(blogPostId = ${blogPost.id})}">
+                    </a>
+                </h2>
+                <time th:if="${blogPost.publishingDate} != null">Posted on
+                    <span th:text="${#temporals.format(blogPost.publishingDate, 'yyyy-MM-dd')}"></span>
+                </time>
 
-            <article>
-                <h2><a href="#">Partial Updates with Spring Boot</a></h2>
-                <time>Posted on <span>2019-09-23</span></time>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum ipsum eget dignissim volutpat. Sed sed vestibulum enim, a tincidunt arcu. Proin quis interdum sapien...</p>
-                <a class="btn btn-primary" href="#">More</a>
-            </article>
-
-            <article>
-                <h2><a href="#">Partial Updates with Spring Boot</a></h2>
-                <time>Posted on <span>2019-09-23</span></time>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum ipsum eget dignissim volutpat. Sed sed vestibulum enim, a tincidunt arcu. Proin quis interdum sapien...</p>
-                <a class="btn btn-primary" href="#">More</a>
+                <p th:text="${blogPost.content}"></p>
+                <a class="btn btn-primary"
+                   th:href="@{/blog-posts/{blogPostId}(blogPostId = ${blogPost.id})}">
+                    More
+                </a>
             </article>
 
         </section>

@@ -3,7 +3,7 @@ package me.kakutalua.website.web.controllers.management
 import me.kakutalua.website.domain.BlogPost
 import me.kakutalua.website.infrastructure.repositories.BlogPostsRepository
 import me.kakutalua.website.web.controllers.management.inputmodels.PostForm
-import me.kakutalua.website.web.controllers.management.viewmodels.BlogPostListItemViewModel
+import me.kakutalua.website.web.controllers.management.viewmodels.BlogPostManagementItemViewModel
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Controller
@@ -22,7 +22,7 @@ class BlogPostsController(val blogPostsRepository: BlogPostsRepository) {
     fun index(pageable: Pageable, model: Model): String {
         val blogPosts = blogPostsRepository.findAll(pageable)
         val blogPostsItems = blogPosts.map { p ->
-            BlogPostListItemViewModel(
+            BlogPostManagementItemViewModel(
                 p.id,
                 p.creationDate.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)),
                 p.title

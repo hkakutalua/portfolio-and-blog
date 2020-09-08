@@ -56,4 +56,21 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="4" author="Henrick Kakutalua">
+        <addColumn tableName="blog_posts">
+            <column name="publishing_date" type="TIMESTAMP WITHOUT TIMEZONE" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="5" author="Henrick Kakutalua">
+        <addColumn tableName="blog_posts">
+            <column name="publishing_status" type="VARCHAR(30)" />
+        </addColumn>
+
+        <addNotNullConstraint
+                tableName="blog_posts"
+                columnName="publishing_status"
+                defaultNullValue="DRAFT" />
+    </changeSet>
+
 </databaseChangeLog>
