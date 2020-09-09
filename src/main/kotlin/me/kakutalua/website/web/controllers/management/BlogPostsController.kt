@@ -65,7 +65,10 @@ class BlogPostsController(val blogPostsRepository: BlogPostsRepository) {
         }
 
         model["postForm"] = PostForm(
-            blogPost.title, blogPost.subtitle, blogPost.content
+            blogPost.title,
+            blogPost.subtitle,
+            blogPost.content,
+            blogPost.publishingStatus
         )
 
         return "edit-blog-post"
@@ -87,6 +90,7 @@ class BlogPostsController(val blogPostsRepository: BlogPostsRepository) {
         blogPost.title = postForm.title
         blogPost.subtitle = postForm.subtitle
         blogPost.content = postForm.content
+        blogPost.publishingStatus = postForm.publishingStatus
         blogPostsRepository.save(blogPost)
 
         return "redirect:/management/blog-posts"

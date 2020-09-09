@@ -12,6 +12,14 @@
     margin-bottom: 25px;
 }
 
+.blog-post-form .post-publishing-status-row {
+    margin-bottom: 30px;
+}
+
+.post-publishing-status-row > label {
+    margin-right: 10px;
+}
+
 .blog-post-form .post-content-row {
     margin-bottom: 15px;
 }
