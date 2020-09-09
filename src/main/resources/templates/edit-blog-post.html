@@ -28,6 +28,14 @@
             <p th:if="${#fields.hasErrors('subtitle')}" th:errors="*{subtitle}" class="form-error"></p>
         </div>
 
+        <div class="row post-publishing-status-row">
+            <label>Publishing Status</label>
+            <select th:field="*{publishingStatus}">
+                <option th:value="'DRAFT'" th:text="Draft"></option>
+                <option th:value="'PUBLISHED'" th:text="Published"></option>
+            </select>
+        </div>
+
         <div class="row post-content-row">
             <label>Post Content</label>
             <textarea th:field="*{content}" class="text-edit" placeholder="Write the blog markdown content here"></textarea>
