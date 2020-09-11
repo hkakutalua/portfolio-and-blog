@@ -79,19 +79,29 @@ section p:last-child {
     text-transform: none;
     text-decoration: none;
     display: inline-block;
-    color: #fff;
     padding: 10px 20px;
     border-radius: 200px;
-    border: none;
     transition: background-color 0.2s, border-color 0.2s;
 }
 
 .btn-primary {
     background-color: #B07030;
+    border: none;
+    color: #fff;
 }
 
 .btn-primary:hover {
     background-color: #7D4F22;
+}
+
+.btn-secondary {
+    border: 2px solid #B07030;
+    color: #000;
+}
+
+.btn-secondary:hover {
+    background-color: #B07030;
+    color: #fff;
 }
 
 .social-media-links {
