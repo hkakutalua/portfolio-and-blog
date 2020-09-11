@@ -1,0 +1,18 @@
+.delete-dialog-container {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.actions-buttons {
+    text-align: right;
+}
+
+/* Small tablets to big tablets (481px to 767px) */
+@media only screen and (max-width: 767px) {
+    .delete-dialog-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}

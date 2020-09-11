@@ -95,4 +95,28 @@ class BlogPostsController(val blogPostsRepository: BlogPostsRepository) {
 
         return "redirect:/management/blog-posts"
     }
+
+    @GetMapping("{id}/delete")
+    fun delete(@PathVariable("id") id: Long, model: Model): String {
+        val blogPost = blogPostsRepository.findByIdOrNull(id)
+        if (blogPost == null) {
+            return "redirect:/management/blog-posts"
+        }
+
+        model["blogPostTitle"] = blogPost.title
+
+        return "delete-blog-post"
+    }
+
+    @PostMapping("{id}/delete")
+    fun delete(@PathVariable("id") id: Long): String {
+        val blogPost = blogPostsRepository.findByIdOrNull(id)
+        if (blogPost == null) {
+            return "redirect:/management/blog-posts"
+        }
+
+        blogPostsRepository.delete(blogPost)
+
+        return "redirect:/management/blog-posts"
+    }
 }

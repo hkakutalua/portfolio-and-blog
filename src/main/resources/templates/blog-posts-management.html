@@ -33,7 +33,9 @@
                     <a th:href="@{/management/blog-posts/{blogPostId}/edit(blogPostId = ${blogPost.id})}">
                         <i class="fas fa-edit edit-article-icon"></i>
                     </a>
-                    <i class="fas fa-trash delete-article-icon"></i>
+                    <a th:href="@{/management/blog-posts/{blogPostId}/delete(blogPostId = ${blogPost.id})}">
+                        <i class="fas fa-trash delete-article-icon"></i>
+                    </a>
                 </div>
             </div>
         </div>

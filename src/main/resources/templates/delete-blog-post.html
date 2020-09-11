@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_head :: common_head(~{::title}, ~{::link})">
+    <title>Delete Blog Post</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/delete-blog-post.css}">
+</head>
+
+<body>
+    <nav th:replace="_management_nav :: management_nav"></nav>
+
+    <div class="delete-dialog-container">
+        <div class="row">
+            <h1>Delete Blog Post</h1>
+            <p th:text="'Are you sure you want to delete \'' + ${blogPostTitle} + '\'?'"></p>
+        </div>
+
+        <form class="row actions-buttons"
+              action="#"
+              th:action="@{/management/blog-posts/{id}/delete(id = ${id})}"
+              method="post">
+            <a class="btn btn-secondary" th:href="@{/management/blog-posts}" th:text="No"></a>
+            <button type="submit" class="btn btn-primary" th:text="Yes"></button>
+        </form>
+    </div>
+
+    <footer th:include="_footer.html :: common_footer"></footer>
+</body>
+</html>
