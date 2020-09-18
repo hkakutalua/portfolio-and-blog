@@ -157,6 +157,14 @@
 							</annotationProcessorPaths>
 						</configuration>
 					</execution>
+
+					<execution>
+						<id>compile</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
