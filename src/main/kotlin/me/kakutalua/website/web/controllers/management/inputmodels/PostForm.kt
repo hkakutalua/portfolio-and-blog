@@ -11,7 +11,7 @@ class PostForm(
     @field:Size(min = 5, max = 100)
     val title: String = "",
 
-    @field:Size(min = 5, max = 100)
+    @field:Size(max = 100)
     val subtitle: String?,
 
     @field:NotEmpty
@@ -19,5 +19,5 @@ class PostForm(
     val content: String = "",
 
     @field:NotNull
-    val publishingStatus: PublishingStatus
+    val publishingStatus: PublishingStatus = PublishingStatus.DRAFT
 )
