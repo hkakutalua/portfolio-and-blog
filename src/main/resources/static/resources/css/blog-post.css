@@ -53,6 +53,12 @@ article > figure {
     max-width: 100%;
 }
 
+.content code:not([class*="language-"]) {
+    max-width: 100%;
+    overflow-y: scroll;
+    display: block;
+}
+
 /* Big tablets to 1200px */
 @media only screen and (max-width: 1200px) {
     article {
