@@ -16,6 +16,7 @@ html, body {
     background: #ffffff;
     color: #1b1b1b;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
 }
 
 .row {
