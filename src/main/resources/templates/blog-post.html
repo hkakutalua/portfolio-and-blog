@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="_head :: common_head(~{::title},~{::link})">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/css/prism/prism.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/resources/css/blog-post.css}">
     <title th:text="${blogPost.title}"></title>
 </head>
@@ -21,5 +22,7 @@
     </article>
 
     <footer th:replace="_footer :: common_footer"></footer>
+
+    <script th:src="@{/vendors/js/prism/prism.js}"></script>
 </body>
 </html>
