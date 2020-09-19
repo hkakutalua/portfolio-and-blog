@@ -3,6 +3,8 @@
 # My Blog and Portfolio
 This repository contains the source code for [my personal website](kakutalua.herokuapp.com).
 
+<img src="screenshots/1.jpg" width="200px" /> <img src="screenshots/2.jpg" width="200px" /> <img src="screenshots/3.jpg" width="200px" />
+
 ## Contributing
 
 Please feel welcome to contribute to this repository, you can send an issue if there's an interesting feature to be added or a bug you spot.
