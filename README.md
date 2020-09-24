@@ -1,7 +1,7 @@
 <img src="avatar.svg" width=300px />
 
 # My Blog and Portfolio
-This repository contains the source code for [my personal website](kakutalua.herokuapp.com).
+This repository contains the source code for [my personal website](http://kakutalua.herokuapp.com).
 
 <img src="screenshots/1.jpg" width="200px" /> <img src="screenshots/2.jpg" width="200px" /> <img src="screenshots/3.jpg" width="200px" />
 
